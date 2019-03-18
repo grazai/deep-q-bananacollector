@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 from dqn_agent import Agent
 import torch
 
-def dqn(n_episodes=10000, max_t=1000, eps_start=1.0, eps_end=0.05, eps_decay=0.995, train_mode=True):
+def dqn(n_episodes=10000, max_t=1000, eps_start=1.0, eps_end=0.005, eps_decay=0.995, train_mode=True):
     """Deep Q-Learning.
     
     Params
@@ -33,7 +33,7 @@ def dqn(n_episodes=10000, max_t=1000, eps_start=1.0, eps_end=0.05, eps_decay=0.9
     env_info = env.reset(train_mode=train_mode)[brain_name]
     state_size = len(env_info.vector_observations[0])
 
-    agent = Agent(state_size=state_size, action_size=action_size, seed=0)
+    agent = Agent(state_size=state_size, action_size=action_size, seed=1)
 
     for i_episode in range(1, n_episodes+1):
         state = env_info.vector_observations[0]
@@ -63,15 +63,18 @@ def dqn(n_episodes=10000, max_t=1000, eps_start=1.0, eps_end=0.05, eps_decay=0.9
             break
     return scores
 
-
 os.environ['NO_PROXY'] = 'localhost,127.0.0.*'
+print(os.getcwd())
 #	os.chdir(os.path.join(os.getcwd(), 'p1_navigation'))
 #	print(os.getcwd())
 #except:
 #	pass
 
-
+from datetime import datetime
+start=datetime.now()
 scores = dqn()
+end=datetime.now()
+print("Duration: {}".format(end-start))
 
 # plot the scores
 fig = plt.figure()
@@ -80,6 +83,8 @@ plt.plot(np.arange(len(scores)), scores)
 plt.ylabel('Score')
 plt.xlabel('Episode #')
 plt.show()
+
+
 
 
 

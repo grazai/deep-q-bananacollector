@@ -8,17 +8,15 @@ import torch
 import torch.nn.functional as F
 import torch.optim as optim
 
-#BUFFER_SIZE = int(1e5)  # replay buffer size
 BUFFER_SIZE = int(1e5)  # replay buffer size
 BATCH_SIZE = 64         # minibatch size
 GAMMA = 0.99            # discount factor
 TAU = 1e-3              # for soft update of target parameters
 LR = 5e-4               # learning rate 
-# LR = 1e-2               # learning rate 
 UPDATE_EVERY = 4        # how often to update the network
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-print(device)
+#device = torch.device("cpu")
 
 class Agent():
     """Interacts with and learns from the environment."""
@@ -37,8 +35,8 @@ class Agent():
         self.seed = random.seed(seed)
 
         # Q-Network
-        self.qnetwork_local = QNetwork(state_size, action_size, seed, 128, 128).to(device)
-        self.qnetwork_target = QNetwork(state_size, action_size, seed, 128, 128).to(device)
+        self.qnetwork_local = QNetwork(state_size, action_size, seed, 512, 128).to(device)
+        self.qnetwork_target = QNetwork(state_size, action_size, seed, 512, 128).to(device)
         #self.optimizer = optim.Adam(self.qnetwork_local.parameters(), lr=LR)
         self.optimizer = optim.RMSprop(self.qnetwork_local.parameters(), lr = LR) # works better than Adam
 
@@ -92,16 +90,13 @@ class Agent():
         # Get max predicted Q values (for next states) from target model
         Q_targets_next = self.qnetwork_target(next_states).detach().max(1)[0].unsqueeze(1)
         # Compute Q targets for current states 
-        Q_targets = rewards + (gamma * Q_targets_next * (1 - dones))
+        Q_targets = rewards + ((1 - dones)* gamma * Q_targets_next)
 
         # Get expected Q values from local model
         Q_expected = self.qnetwork_local(states).gather(1, actions)
 
         # Compute loss
-        # loss = F.mse_loss(Q_expected, Q_targets)
         loss = F.smooth_l1_loss(Q_expected, Q_targets) # <- huber loss from RL bootcamp
-        prios = loss + 1e-5
-        print(prios.data.cpu().numpy())
         # Minimize the loss
         self.optimizer.zero_grad()
         loss.backward()

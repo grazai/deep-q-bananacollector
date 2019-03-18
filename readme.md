@@ -7,11 +7,17 @@
 ### Introduction
 
 This project has been built for the [Udacity Deep Reinforcement Learning Nano Degree Program](https://eu.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893).
-With this you can train an agent to navigate and collect bananas in a large, square world.  
+With this you can train an agent to navigate and collect bananas in a large, square world.
 
 ![Trained Agent][image1]
 
-A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana.  Thus, the goal of your agent is to collect as many yellow bananas as possible while avoiding blue bananas.  
+### Project Details
+
+The goal is to collect as many yellow bananas available while avoiding blue bananas.
+
+The agent is trained using an algorithm called Deep Q-Learning. Deep Q-Learning combines the best of reinforcement learning with recent advances in deep learning. For details see the [jupyter notebook](./Report.ipynb) provided with this repository. 
+
+The environment for training the agent provided is an adapted version of the [Banana Collector](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Learning-Environment-Examples.md#banana-collector) provided by the [Unity ml-agents library](https://github.com/Unity-Technologies/ml-agents)
 
 The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around agent's forward direction.  Given this information, the agent has to learn how to best select actions.  Four discrete actions are available, corresponding to:
 - **`0`** - move forward.
@@ -19,11 +25,17 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 - **`2`** - turn left.
 - **`3`** - turn right.
 
-The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
+The task is episodic, and in order to solve the environment, the agent must get an average score of +13 over 100 consecutive episodes.
 
 ### Getting Started
 
-1. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
+1. Clone this repository, and navigate to the `udacity-p1/` folder.  Then, install several dependencies.
+```bash
+git clone https://github.com/primeMover2011/udacity-p1.git
+cd udacity-p1
+```
+
+2. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
     - Linux: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux.zip)
     - Mac OSX: [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana.app.zip)
     - Windows (32-bit): [click here](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Windows_x86.zip)
@@ -33,13 +45,14 @@ The task is episodic, and in order to solve the environment, your agent must get
 
     (_For AWS_) If you'd like to train the agent on AWS (and have not [enabled a virtual screen](https://github.com/Unity-Technologies/ml-agents/blob/master/docs/Training-on-Amazon-Web-Service.md)), then please use [this link](https://s3-us-west-1.amazonaws.com/udacity-drlnd/P1/Banana/Banana_Linux_NoVis.zip) to obtain the environment.
 
-2. Extract the contents of the file to a folder of you choice, preferably as a subfolder of this repository.
+3. Extract the contents of the file to a folder of you choice, preferably as a subfolder of this repository.
 
-3. Install [conda](https://conda.io/en/latest/miniconda.html)
-4. Create a virtual environment and install the required python packages using these commands
+4. Install [conda](https://conda.io/en/latest/miniconda.html) 
+5. cd in to the directory where you cloned this repository, create a virtual environment and install the required python packages using these commands
 
 ```bash
-conda env create -f conda-environment.yml
+cd udacity-p1
+conda env create -f environment.yml
 ```
 
 activate the environment using
@@ -48,10 +61,14 @@ activate the environment using
 conda activate udacity-banana
 ```
 
-### Project Details
+6. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `udacity-p1` environment.  
+```bash
+python -m ipykernel install --user --name udacity-p1 --display-name "udacity-p1"
+```
+5. Before running code in a notebook, change the kernel to match the `udacity-p1` environment by using the drop-down `Kernel` menu. 
 
-describes the the project environment details (i.e., the state and action spaces, and when the environment is considered solved).
+![Kernel](./change_kernel.png)
 
-nstructions for installing dependencies or downloading needed files.
+
 
 

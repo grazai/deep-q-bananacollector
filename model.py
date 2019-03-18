@@ -38,7 +38,6 @@ class QNetwork(nn.Module):
 
 
     def forward(self, state):
-        """Build a network that maps state -> action values."""
         x = self.feature(state)
         advantage = self.advantage(x)
         value     = self.value(x)
