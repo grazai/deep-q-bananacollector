@@ -69,6 +69,10 @@ python -m ipykernel install --user --name udacity-p1 --display-name "udacity-p1"
 
 ![Kernel](./change_kernel.png)
 
+6. Open [the notebook Report.ipynb](./Report.ipynb) and execute each cell to train an agent using Deep Q-Learning with a Dueling network.
+
+Enjoy!
+
 
 
 
