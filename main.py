@@ -3,6 +3,8 @@ from collections import deque
 import matplotlib.pyplot as plt
 from dqn_agent import Agent
 import torch
+import os
+from unityagents import UnityEnvironment
 
 
 def dqn(
@@ -89,9 +91,11 @@ if __name__ == "__main__":
     os.environ["NO_PROXY"] = "localhost,127.0.0.*"
 
     from datetime import datetime
-
+    file_name=r"Banana/Banana"
+    env_visible = False # Whether you want to see the agent doing training/inference.
+    env = UnityEnvironment(file_name=file_name, base_port=64738, no_graphics=not env_visible)
     start = datetime.now()
-    scores = dqn()
+    scores = dqn(env=env)
     end = datetime.now()
     print("Duration: {}".format(end - start))
 
