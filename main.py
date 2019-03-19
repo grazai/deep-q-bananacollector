@@ -60,26 +60,22 @@ def dqn(env, n_episodes=10000, max_t=1000, eps_start=1.0, eps_end=0.005, eps_dec
             break
     return scores
 
-os.environ['NO_PROXY'] = 'localhost,127.0.0.*'
-print(os.getcwd())
-#	os.chdir(os.path.join(os.getcwd(), 'p1_navigation'))
-#	print(os.getcwd())
-#except:
-#	pass
+if if __name__ == "__main__":
+    os.environ['NO_PROXY'] = 'localhost,127.0.0.*'
 
-from datetime import datetime
-start=datetime.now()
-scores = dqn()
-end=datetime.now()
-print("Duration: {}".format(end-start))
+    from datetime import datetime
+    start=datetime.now()
+    scores = dqn()
+    end=datetime.now()
+    print("Duration: {}".format(end-start))
 
-# plot the scores
-fig = plt.figure()
-ax = fig.add_subplot(111)
-plt.plot(np.arange(len(scores)), scores)
-plt.ylabel('Score')
-plt.xlabel('Episode #')
-plt.show()
+    # plot the scores
+    fig = plt.figure()
+    ax = fig.add_subplot(111)
+    plt.plot(np.arange(len(scores)), scores)
+    plt.ylabel('Score')
+    plt.xlabel('Episode #')
+    plt.show()
 
 
 

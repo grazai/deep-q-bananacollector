@@ -108,3 +108,4 @@ ENV/
 Banana/
 #pycharm
 .idea/
+my_checkpoint.pth
