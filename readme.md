@@ -6,7 +6,7 @@
 
 ### Introduction
 
-This project has been built for the [Udacity Deep Reinforcement Learning Nano Degree Program](https://eu.udacity.com/course/deep-reinforcement-learning-nanodegree--nd893).
+This project has been built for the [Graz Deep Learning Meetup](https://www.meetup.com/de-DE/DeepLearningGraz/).
 With this you can train an agent to navigate and collect bananas in a large, square world.
 
 ![Trained Agent][image1]
@@ -29,10 +29,10 @@ The task is episodic, and in order to solve the environment, the agent must get 
 
 ### Getting Started
 
-1. Clone this repository, and navigate to the `udacity-p1/` folder.  Then, install several dependencies.
+1. Clone this repository, and navigate to the `deep-q-bananacollector/` folder.  Then, install several dependencies.
 ```bash
-git clone https://github.com/primeMover2011/udacity-p1.git
-cd udacity-p1
+git clone https://github.com/grazai/deep-q-bananacollector.git
+cd deep-q-bananacollector
 ```
 
 2. Download the environment from one of the links below.  You need only select the environment that matches your operating system:
@@ -51,23 +51,21 @@ cd udacity-p1
 5. cd in to the directory where you cloned this repository, create a virtual environment and install the required python packages using these commands
 
 ```bash
-cd udacity-p1
+cd deep-q-bananacollector
 conda env create -f environment.yml
 ```
 
 activate the environment using
 
 ```bash
-conda activate udacity-banana
+conda activate deep-q-bananacollector
 ```
 
-6. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `udacity-p1` environment.  
+6. Create an [IPython kernel](http://ipython.readthedocs.io/en/stable/install/kernel_install.html) for the `deep-q-bananacollector` environment.  
 ```bash
-python -m ipykernel install --user --name udacity-p1 --display-name "udacity-p1"
+python -m ipykernel install --user --name deep-q-bananacollector --display-name "deep-q-bananacollector"
 ```
-5. Before running code in a notebook, change the kernel to match the `udacity-p1` environment by using the drop-down `Kernel` menu. 
-
-![Kernel](./change_kernel.png)
+5. Before running code in a notebook, change the kernel to match the `deep-q-bananacollector` environment by using the drop-down `Kernel` menu. 
 
 6. Open [the notebook Report.ipynb](./Report.ipynb) and execute each cell to train an agent using Deep Q-Learning with a Dueling network.
 
