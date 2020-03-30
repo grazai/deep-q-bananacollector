@@ -1,4 +1,4 @@
-name: udacity-p1
+name: deep-q-bananacollector
 channels:
   - pytorch
   - conda-forge
