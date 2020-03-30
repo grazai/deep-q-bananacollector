@@ -29,7 +29,7 @@ The task is episodic, and in order to solve the environment, the agent must get 
 
 ### Getting Started
 
-1. Clone this repository, and navigate to the `deep-q-bananacollector/` folder.  Then, install several dependencies.
+1. Clone this repository, and navigate to the `deep-q-bananacollector/` folder.
 ```bash
 git clone https://github.com/grazai/deep-q-bananacollector.git
 cd deep-q-bananacollector
